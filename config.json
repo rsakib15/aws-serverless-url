@@ -1,0 +1,8 @@
+{
+  "BUCKET": "INSERT_BUCKET_NAME",
+  "S3_PARTITION": "aws",
+  "REGION": "eu-west-1",
+  "STAGE": "dev",
+  "API_ENDPOINT_TYPE": "EDGE",
+  "API_URL": ""
+}

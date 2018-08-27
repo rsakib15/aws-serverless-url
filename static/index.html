@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>URL Shortener</title>
+    <link href="admin/css/application.min.css" rel="stylesheet">
+    <link href="home.css" rel="stylesheet">
+    <link href="http://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<style>
+  
+</style>
+<body>
+  <div class="row flex-center">
+    <div class="col-8 col">
+      <h2>Url Shortener</h2>
+      <form action="INSERT_API_URL">
+        <div class="form-group">
+          <label for="url">Enter URL to shorten</label>
+          <input class="input-block" name="url" type="url" id="url"  autocomplete="off" required>
+        </div>
+        <div id="message" class="alert alert-primary"></div>
+        <button class="btn btn-danger paper-btn" type="submit">Shorten link</button>
+      </form>
+    </div>
+  </div>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script>
+    $('form').submit(function (event) {
+      event.preventDefault()
+      addMessage('creating shortlink....')
+      shortenLink(event.target.action, event.target.url.value)
+    })
+
+    function shortenLink (apiUrl, longUrl) {
+      $.ajax(apiUrl, {
+        type : 'POST', 
+        data: JSON.stringify({url: longUrl})})
+        .done(function (responseJSON) {
+          var shortUrl = window.location.protocol + '//' + window.location.host + '/' + responseJSON.path
+          addMessage(shortUrl)
+        })
+        .fail(function (data) {
+          if (data.status === 400) {
+            addMessage(data.responseJSON.message)
+          } else {
+            addMessage('an unexpected error occurred')
+          }
+        })
+    }
+
+    function addMessage (text) {
+      $('#message').text(text).show()
+    }
+  </script>
+</body>
+</html>
