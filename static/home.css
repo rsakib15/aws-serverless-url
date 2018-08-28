@@ -5,7 +5,7 @@ html {
 }
 h2 {
     font-weight: 400;
-    font-size: 3rem
+    font-size: 2rem
 }
 #message {
     display: none;
@@ -26,7 +26,7 @@ input {
     outline: 0;
     font-size: 1rem;
     padding: .5rem .5rem;
-    border: 2px solid #41403e
+    border: 2px solid #41403e;
 }
 [type=submit] {
     -webkit-appearance: button
@@ -46,7 +46,8 @@ input:focus {
 }
 .form-group>label {
     display: inline-block;
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
+    text-align: center;
 }
 .form-group .input-block {
     width: 100%
@@ -72,52 +73,16 @@ input:focus {
     box-shadow: 2px 8px 8px -5px rgba(0, 0, 0, .3);
     transform: translate(0, 2px)
 }
-.row {
-    margin-right: auto;
-    margin-left: auto;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-    margin-bottom: 1rem
+.main-section {
+    padding: 7rem 5rem;
+    text-align: center;
 }
-.row.flex-center {
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center
-}
-.col {
-    padding: 5rem
-}
-@media (max-width:767px) {
-    .col {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-        flex: 0 0 100%;
-        max-width: 100%
-    }
-}
-@media (min-width:0px) {
-    .col-8 {
-        -webkit-box-flex: 0;
-        -webkit-flex: 0 0 66.66666667%;
-        -ms-flex: 0 0 66.66666667%;
-        flex: 0 0 66.66666667%;
-        max-width: 66.66666667%
-    }
-}
+
 .paper-btn {
     font-weight: bold;
     font-size: 20px;
     padding: .75rem .75rem;
-    
+    text-align: center;
 }
 .paper-btn:hover {
     -webkit-box-shadow: 2px 8px 8px -5px rgba(0, 0, 0, .3);
@@ -134,4 +99,24 @@ input:focus {
 .paper-btn:active {
     border-color: #dd5826;
     transition: none
+}
+.form-section{
+    margin-top: 10px;
+}
+@media (max-width:767px) {
+    h2{
+        font-size: 32px;
+    }
+    .main-section {
+        padding-top: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: center;
+    }
+    #message {
+        font-size: 20px;
+    }
+    .paper-btn {
+        font-size: 16px;
+    }
 }
